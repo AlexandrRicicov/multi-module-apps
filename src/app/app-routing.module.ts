@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { CounterComponent } from './counter/counter.component';
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    [
+      {
+        path: 'app1',
+        component: CounterComponent
+      },
+      {
+        path: 'app2',
+        loadChildren: () => import('../../projects/app2/src/app/app.module').then(m => m.AppModule)
+      }
+    ]
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
