@@ -14,6 +14,10 @@ import { CounterComponent } from './counter/counter.component';
       {
         path: 'app2',
         loadChildren: () => import('../../projects/app2/src/app/app.module').then(m => m.AppModule)
+      },
+      {
+        path: '**',
+        component: CounterComponent
       }
     ]
   )],
